@@ -1,4 +1,4 @@
-const links = [ {"label": "Week1 code", "url": "week1/index.html"}];
+const links = [ {"label": "Week 1 code", "url": "week1/index.html"}];
 
 const parent = document.getElementById("index_list")
 
