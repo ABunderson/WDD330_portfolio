@@ -1,3 +1,16 @@
-const question = "What is Superman's real name?"
-const answer = prompt(question);
-alert(`You answered ${answer}`);
+const links = [{
+    "label": "Exercise 1",
+    "url": "exercise1.html"
+}];
+
+for (let i = 0; i < links.length; i++) {
+    
+    const parent = document.getElementById("index_list");
+    var list_item = document.createElement("li");
+    var list_link = document.createElement("a");
+
+    parent.appendChild(list_item);
+    list_item.appendChild(list_link);
+    list_link.href = links[i]['url'];
+    list_link.textContent += links[i]['label'];
+}
