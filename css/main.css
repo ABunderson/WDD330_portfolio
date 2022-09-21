@@ -5,6 +5,7 @@ html {
     background-color: #d6d3d9;
 }
 
+
 h1 {
     padding: 0 0 .5em 1em;
     border-bottom: solid 10px #7a0037;
@@ -21,6 +22,7 @@ ol {
 
 li {
     padding-top: 2.5em;
+    list-style: none;
 }
 
 li:first-of-type {
