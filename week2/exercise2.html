@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week 2 Exercise 2</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <h1>WDD 330 Portfolio - Week 2</h1>
+
+    <h2>Code 2.1: Looping a Triangle</h2>
+    <p>for(let line = '#'; line.length < 8; line +='#' ){<br>&emsp;console.log(line);<br>}</p>
+
+    <h2>Code 2.2: FizzBuzz</h2>
+    <p>for(i=1; i < 101; i++){<br>
+            &emsp;if(i%3 === 0 && i%5 === 0){<br>
+            &emsp;&emsp;console.log('FizzBuzz');<br>
+            &emsp;}else if(i%3 === 0){<br>
+            &emsp;&emsp;console.log('Fizz');<br>
+            &emsp;}else if(i%5 === 0){<br>
+            &emsp;&emsp;console.log('Buzz')<br>
+            &emsp;}else{<br>
+            &emsp;&emsp;console.log(i);<br>
+            &emsp;}<br>
+            }</p>
+
+    <h2>Code 2.3: Chessboard</h2>
+    <p>const size = 8;<br>
+        <br>
+        let grid = '';<br>
+        <br>
+        for(let y = 0; y <= size; y++){<br>
+            &emsp;for (let x = 0; x <= size; x++){<br>
+                &emsp;&emsp;if((x+y)%2 === 0){<br>
+                &emsp;&emsp;&emsp;grid += ' ';<br>
+                &emsp;&emsp;}else{ grid += '#';}<br>
+                &emsp;}<br>
+                &emsp;grid += '\n';<br>
+                }<br>
+                <br>
+                console.log(grid);</p>
+
+    <h2>Code 3.1: Minimum</h2>
+    <p>function min(x, y){<br>
+        &emsp;return Math.min(x, y);<br>
+      }<br>
+      <br>
+      console.log(min(0, 10));<br>
+      // → 0<br>
+      console.log(min(0, -10));<br>
+      // → -10</p>
+
+    <h2>Code 3.2: Recursion</h2>
+    <p>function isEven(x){<br>
+        &emsp;if (x === 0){<br>
+            &emsp;&emsp;return true;<br>
+            &emsp;}else if(x === 1){<br>
+                &emsp;&emsp;return false;<br>
+                &emsp;}else if (x < 0) {<br>
+                    &emsp;&emsp;return isEven(-x);<br>
+                    &emsp;}else{<br>
+                        &emsp;&emsp;return isEven(x-2);<br>
+                        &emsp;}<br>
+        }<br>
+        <br>
+        console.log(isEven(50));<br>
+        // → true<br>
+        console.log(isEven(75));<br>
+        // → false<br>
+        console.log(isEven(-1));<br>
+        // → ??</p>
+
+    <h2>Code 3.3: Bean Counting</h2>
+    <p>function countBs(word){<br>
+        &emsp;return countChar(word, 'B');<br>
+    }<br>
+    <br>
+    function countChar(word, letter){<br>
+        &emsp;let count = 0;<br>
+        &emsp;for (let i = 0; i < word.length; i++){<br>
+            &emsp;&emsp;if(word.charAt(i) == letter) count += 1;<br>
+            &emsp;}<br>
+            &emsp;return count;<br>
+    }<br>
+    <br>
+    console.log(countBs("BBC"));<br>
+    // → 2<br>
+    console.log(countChar("kakkerlak", "k"));<br>
+    // → 4</p>
+
+    <h2>Code 4.1: The sum of a range</h2>
+    <p>function range(start, end, direction){<br>
+        &emsp;const array = new Array();<br>
+        &emsp;if (direction < 0) {<br>
+            &emsp;&emsp;for (let i = start; i >= end; i--){<br>
+                &emsp;&emsp;&emsp;array.push(i);<br>
+                &emsp;&emsp;}<br>
+                &emsp;}else {<br>
+                    &emsp;&emsp;for (let i = start; i <= end; i++){<br>
+                        &emsp;&emsp;&emsp;array.push(i);<br>
+                        &emsp;&emsp;}<br>
+                        &emsp;}<br>
+                        &emsp;return array;<br>
+      }<br>
+      <br>
+      function sum(array){<br>
+        &emsp;let sum = 0;<br>
+        &emsp;for(let i=0; i < array.length; i++){<br>
+            &emsp;&emsp;sum += array[i];<br>
+            &emsp;}<br>
+            &emsp;return sum;<br>
+      }<br>
+      <br>
+      <br>
+      console.log(range(1, 10));<br>
+      // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br>
+      console.log(range(5, 2, -1));<br>
+      // → [5, 4, 3, 2]<br>
+      console.log(sum(range(1, 10)));<br>
+      // → 55</p>
+
+      <h2>Code 4.2: Reversing an array</h2>
+      <p>function reverseArray(array){<br>
+        &emsp;let newArray = [];<br>
+        &emsp;for(let i = 0; i < array.length; i++){<br>
+            &emsp;&emsp;newArray.unshift(array[i]);<br>
+            &emsp;}<br>
+            &emsp;return newArray;<br>
+      }<br>
+      <br>
+      function reverseArrayInPlace(array){<br>
+        &emsp;for(let i = 0; i <= Math.floor(array.length/2); i++){<br>
+            &emsp;&emsp;let hold = array[array.length-1-i];<br>
+            &emsp;&emsp;array[array.length-1-i] = array[i];<br>
+            &emsp;&emsp;array[i] = hold;<br>
+            &emsp;}<br>
+            &emsp;return array;<br>
+      }<br>
+      <br>
+      console.log(reverseArray(["A", "B", "C"]));<br>
+      // → ["C", "B", "A"];<br>
+      let arrayValue = [1, 2, 3, 4, 5];<br>
+      reverseArrayInPlace(arrayValue);<br>
+      console.log(arrayValue);<br>
+      // → [5, 4, 3, 2, 1]</p>
+
+    <footer>
+        <a href="index.html">Week Page</a>
+        <a href="../index.html">Main Page</a>
+    </footer>
+
+</body>
+
+</html>

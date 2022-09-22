@@ -1,6 +1,9 @@
 const links = [{
     "label": "Exercise 1",
     "url": "exercise1.html"
+}, {
+    "label": "Exercise 2",
+    "url": "exercise2.html"
 }];
 
 for (let i = 0; i < links.length; i++) {
