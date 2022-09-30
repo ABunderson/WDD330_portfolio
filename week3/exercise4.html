@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Exercise 4 | Week 3</title>
+</head>
+<body>
+  <h1>Exercise 4</h1>
+  <h2>Code 14.1: Building a Table results</h2>
+  <h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+<script>
+  const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+
+  // Your code here
+  function buildTable(data) {
+    //create table
+    let table = document.createElement("table");
+    
+    //create the label row of the table only need it once
+    //Object.keys returns an array of the keys or property names
+    let fields = Object.keys(data[0]);
+    let headRow = document.createElement("tr");
+    
+    fields.forEach(function(field) {
+      let headCell = document.createElement("th");
+      headCell.appendChild(document.createTextNode(field));
+      headRow.appendChild(headCell);
+    });
+    //attach label row to table
+    table.appendChild(headRow); 
+    
+    //create the rest of the table
+    //seperates the objects
+    data.forEach(function(object) {
+      let row = document.createElement("tr");
+      //seperates the properties
+      fields.forEach(function(field) {
+        //create the html element
+        let cell = document.createElement("td");
+        //create the data
+        let text = document.createTextNode(object[field]);
+        cell.appendChild(text);
+        //object[field] field is the property name and this returns the value of the property
+        if (typeof object[field] == "number"){
+          cell.style.textAlign = "right";
+        }
+        
+        //add new cell info to the row
+        row.appendChild(cell);
+      });
+      //add new row to table
+      table.appendChild(row);
+    });
+    
+    return table;    
+  }
+  
+    //add everything to the html
+    const placement = document.getElementById("mountains");
+    placement.appendChild(buildTable(MOUNTAINS));
+  
+</script>
+
+  
+  <footer>
+    <a href="index.html">Week Page</a>
+    <a href="../index.html">Main Page</a>
+  </footer>
+</body>
+</html>

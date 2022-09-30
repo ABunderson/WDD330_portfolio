@@ -5,6 +5,13 @@ const links = [{
 {
     "label": "Exercise 2",
     "url": "exercise2.html"
+}, 
+{    "label": "Exercise 3",
+"url": "exercise3.html"
+},
+{
+"label": "Exercise 4",
+"url": "exercise4.html"
 }];
 
 for (let i = 0; i < links.length; i++) {
